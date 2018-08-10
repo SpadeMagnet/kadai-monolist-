@@ -3,12 +3,6 @@ class ItemsController < ApplicationController
 
   def new
     @items = []
-  
-  def show
-    @item = Item.find(params[:id])
-    @want_users = @item.want_users
-    @have_users = @item.have_users
-  end
 
     @keyword = params[:keyword]
     if @keyword
@@ -23,5 +17,11 @@ class ItemsController < ApplicationController
         @items << item
       end
     end
+  end
+  
+  def show
+    @item = Item.find(params[:id])
+    @want_users = @item.want_users
+    @have_users = @item.have_users
   end
 end
